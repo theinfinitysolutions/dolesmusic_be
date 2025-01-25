@@ -27,9 +27,11 @@ SECRET_KEY = 'django-insecure-l0u&d^ll3*mj^^m8j*bpslhe#uddksb$^)fw$n4eilfivx)tys
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://140.245.31.101:7022',
-    'https://api.dolesmusic.com',
-    'https://dolesmusic.com',
+    '140.245.31.101',
+    'api.dolesmusic.com', 
+    'dolesmusic.com',
+    'localhost',
+    '*'
 ]
 
 

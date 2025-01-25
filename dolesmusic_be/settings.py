@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'leads'
+    'leads',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,3 +140,12 @@ ZOHO_CLIENT_SECRET = config('ZOHO_CLIENT_SECRET')
 ZOHO_REDIRECT_URI = config('ZOHO_REDIRECT_URI')
 ZOHO_AUTH_CODE = config('ZOHO_AUTH_CODE')
 ZOHO_REFRESH_TOKEN = config('ZOHO_REFRESH_TOKEN')
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "https://dolesmusic.com",
+    "https://api.dolesmusic.com",
+]
+
+# If you want to allow all origins (not recommended for production)
+# CORS_ALLOW_ALL_ORIGINS = True

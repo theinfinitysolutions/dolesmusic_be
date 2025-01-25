@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-l0u&d^ll3*mj^^m8j*bpslhe#uddksb$^)fw$n4eilfivx)tys
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '140.245.31.101:7022',
+    'api.dolesmusic.com',
+    'dolesmusic.com',
+]
 
 
 # Application definition

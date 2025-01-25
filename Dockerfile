@@ -1,24 +1,25 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+FROM python:3.10.2-bullseye
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set the working directory
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /code
 
-# Copy the requirements file into the container
-COPY requirements.txt /app/
+# Install the psycopg2 package
+RUN pip install psycopg2-binary
 
-# Install the dependencies
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install dependencies
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
 
-# Copy the entire project into the container
-COPY . /app/
+# Copy the current directory contents into the container at /code
+COPY . /code/
 
-# Expose the port the app runs on
-EXPOSE 8000
+RUN chmod +x ./entrypoint.sh
 
-# Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"] 
+EXPOSE 80
+
+CMD ["./entrypoint.sh"]

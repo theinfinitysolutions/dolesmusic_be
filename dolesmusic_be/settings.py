@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     '140.245.31.101',
     'api.dolesmusic.com', 
     'dolesmusic.com',
+    'www.dolesmusic.com',
     'localhost',
     '*'
 ]

@@ -37,6 +37,7 @@ class CreateLeadView(APIView):
             response = refresh_access_token()
 
             access_token = response.json().get("access_token")
+            print(access_token)
             if not access_token:
                 logging.error("Failed to obtain access token: %s", response.json())
                 return Response(
@@ -60,25 +61,27 @@ class CreateLeadView(APIView):
             payload = {
                 "data": [
                     {
-                        "Name": f"{data['name']}",
+                        "Name1": f"{data['name']}",
                         "Email": data['email'],
-                        "Phone Number": data.get('phone', ''),
+                        "Phone": data.get('phone', ''),
                         "Purposes": [data.get('purpose', '')],
                         "Budget": f"₹{data.get('budget', '')}",
                         "Message": data.get('message', ''),
-                        "Created On": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                        "Preferred Time Slot": data.get('time_slot', ''),
-                        "Experience Level": data.get('experience', ''),
+                        "Created_On": datetime.datetime.now().strftime("%Y-%m-%d"),
+                        "Preferred_Time_Slot1": [data.get('time_slot', '')],
+                        "Experience_Level": [data.get('experience', '')],
                         "Country": data.get('country', ''),
                         "State": data.get('state', ''),
                         "Campaign": data.get('campaign', ''),
                         "AdSet": data.get('adset', ''),
                         "Placement": data.get('placement', ''),
-                        "Ad ID": data.get('ad', ''),
+                        "Ad_Id": data.get('ad', ''),
                         "Last_Name": "-"
                     }
                 ]
             }
+
+            print(payload)
 
             response = requests.post(url, json=payload, headers=headers)
             logging.debug("Response from Zoho (lead creation request): %s", response.json())

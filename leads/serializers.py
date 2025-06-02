@@ -16,3 +16,12 @@ class LeadSerializer(serializers.Serializer):
     adset = serializers.CharField(max_length=100, required=False, allow_blank=True)
     placement = serializers.CharField(max_length=100, required=False, allow_blank=True)
     ad = serializers.CharField(max_length=100, required=False, allow_blank=True)
+
+
+class BusinessLeadSerializer(serializers.Serializer):
+    company_name = serializers.CharField(max_length=100)
+    email = serializers.EmailField()
+    last_name = serializers.CharField(max_length=100)
+    first_name = serializers.CharField(max_length=100)
+    message = serializers.CharField(max_length=1000, required=False)
+    designation = serializers.CharField(max_length=100, required=False)

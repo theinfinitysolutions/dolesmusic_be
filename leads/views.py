@@ -61,7 +61,7 @@ class CreateLeadView(APIView):
             payload = {
                 "data": [
                     {
-                        "Name1": f"{data['name']}",
+                        "Name1": f"{data['first_name']} {data['last_name']}",
                         "Email": data['email'],
                         "Phone": data.get('phone', ''),
                         "Purposes": [data.get('purpose', '')],
@@ -76,7 +76,8 @@ class CreateLeadView(APIView):
                         "AdSet": data.get('adset', ''),
                         "Placement": data.get('placement', ''),
                         "Ad_Id": data.get('ad', ''),
-                        "Last_Name": "-"
+                        "Last_Name": data.get('last_name', ''),
+                        "Tags": data.get('artist_name', '')
                     }
                 ]
             }

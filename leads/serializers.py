@@ -2,8 +2,8 @@ from rest_framework import serializers
 
 class LeadSerializer(serializers.Serializer):
    
-    name = serializers.CharField(max_length=100)
-    email = serializers.EmailField()
+    first_name = serializers.CharField(max_length=100)
+    last_name = serializers.CharField(max_length=100)
     phone = serializers.CharField(max_length=15, required=False,)
     purpose = serializers.CharField(max_length=255, required=False)
     budget = serializers.CharField(max_length=50, required=False)

@@ -76,7 +76,7 @@ class CreateLeadView(APIView):
                         "AdSet": data.get('adset', ''),
                         "Placement": data.get('placement', ''),
                         "Ad_Id": data.get('ad', ''),
-                        "Last_Name": data.get('last_name', ''),
+                        "Last_Name": data.get('last_name', '-'),
                         "Tags": data.get('artist_name', '')
                     }
                 ]
@@ -259,7 +259,7 @@ class CreateOldLeadView(APIView):
                         "AdSet": data.get('adset', ''),
                         "Placement": data.get('placement', ''),
                         "Ad_Id": data.get('ad', ''),
-                        "Last_Name": data.get('last_name', ''),
+                        "Last_Name": data.get('last_name', '-'),
                         "Tags": data.get('artist_name', '')
                     }
                 ]

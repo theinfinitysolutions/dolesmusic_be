@@ -244,7 +244,7 @@ class CreateOldLeadView(APIView):
             payload = {
                 "data": [
                     {
-                        "Name1": f"{data['first_name']} {data['last_name']}",
+                        "Name1": f"{data['name']}",
                         "Email": data['email'],
                         "Phone": data.get('phone', ''),
                         "Purposes": [data.get('purpose', '')],

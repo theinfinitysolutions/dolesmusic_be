@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
 class LeadSerializer(serializers.Serializer):
-    first_name = serializers.CharField(max_length=100)
-    last_name = serializers.CharField(max_length=100)
+    first_name = serializers.CharField(max_length=100, required=False, allow_null=True)
+    last_name = serializers.CharField(max_length=100, required=False, allow_null=True)
     email = serializers.EmailField()
-    phone = serializers.CharField(max_length=15, required=False,)
+    phone = serializers.CharField(max_length=15)
     purpose = serializers.CharField(max_length=255, required=False)
     budget = serializers.CharField(max_length=50, required=False)
     message = serializers.CharField(max_length=1000, required=False)
@@ -30,10 +30,10 @@ class BusinessLeadSerializer(serializers.Serializer):
 
 class OldLeadSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
-    first_name = serializers.CharField(max_length=100)
-    last_name = serializers.CharField(max_length=100)
+    first_name = serializers.CharField(max_length=100, required=False, allow_null=True)
+    last_name = serializers.CharField(max_length=100, required=False, allow_null=True)
     email = serializers.EmailField()
-    phone = serializers.CharField(max_length=15, required=False,)
+    phone = serializers.CharField(max_length=15, required=False)
     purpose = serializers.CharField(max_length=255, required=False)
     budget = serializers.CharField(max_length=50, required=False)
     message = serializers.CharField(max_length=1000, required=False)
